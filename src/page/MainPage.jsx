@@ -30,7 +30,7 @@ const MainPage = () => {
             Catalog
           </NavLink>
           <NavLink className={getNavLinkClassName} to="/favorite">
-            favorite
+            Favorite
           </NavLink>
         </nav>
       </div>
