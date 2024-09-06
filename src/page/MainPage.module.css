@@ -3,7 +3,7 @@
     height: 16px;
     padding-left: 64px;
     margin-right: 450px;
-  }
+}
 
 .header {
     display: flex;
@@ -11,21 +11,21 @@
     padding: 24px 64px;
     width: 1440px;
 
-}  
-
-.navLink {
-font-weight: 500;
-font-size: 16px;
-line-height: 1.5;
-color: #101828;
-margin-right: 32px;
 }
 
-.active{
-color: rgb(215, 19, 19);
+.navLink {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #101828;
+    margin-right: 32px;
+}
+
+.active {
+    color: rgb(215, 19, 19);
 
 }
 
 .navLink:hover {
-    text-decoration: underline; /* Для эффекта при наведении */
-  }
+    text-decoration: underline;
+}
