@@ -37,3 +37,12 @@
   .mainlogo:hover img {
     filter: brightness(0) saturate(10%) invert(34%) sepia(100%) saturate(2600%) hue-rotate(-1deg) brightness(133%) contrast(106%);
   }
+
+  .section {
+    width: 1440px;
+    height: 696px;
+    background-image: url(../assets/images/main-picture.jpg);
+    background-size: cover; /* Растягивает изображение, сохраняя его пропорции */
+    background-position: center; /* Центрирует изображение по горизонтали и вертикали */
+    background-repeat: no-repeat; /* Не повторяет изображение */
+  }

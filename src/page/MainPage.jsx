@@ -16,6 +16,7 @@ const getNavLinkClassName = ({ isActive }) => {
 
 const MainPage = () => {
   return (
+    <>
     <div className={css.header}>
       <NavLink className={css.mainlogo} to="/">
         <img className={css.logo} src={logo} alt="logo" />
@@ -38,6 +39,10 @@ const MainPage = () => {
         </Suspense>
       </main>
     </div>
+    <section className={css.section}>
+
+    </section>
+    </>
   );
 };
 
