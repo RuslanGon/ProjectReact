@@ -30,9 +30,6 @@ const MainPage = () => {
           </NavLink>
         </nav>
       </div>
-    
-      
-      
       <main>
           <Suspense fallback={<Loader />}>
             <Routes>
@@ -42,7 +39,7 @@ const MainPage = () => {
             </Routes>
           </Suspense>
         </main>
-    <footer><h2>hello</h2></footer>
+
     </>
   );
 };
