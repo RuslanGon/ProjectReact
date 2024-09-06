@@ -42,7 +42,21 @@
     width: 1440px;
     height: 696px;
     background-image: url(../assets/images/main-picture.jpg);
-    background-size: cover; /* Растягивает изображение, сохраняя его пропорции */
-    background-position: center; /* Центрирует изображение по горизонтали и вертикали */
-    background-repeat: no-repeat; /* Не повторяет изображение */
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+  }
+
+  .title {
+font-weight: 600;
+font-size: 48px;
+line-height: 0.66667;
+color: #f7f7f7;
+  }
+
+  .text {
+font-weight: 600;
+font-size: 24px;
+line-height: 1.33333;
+color: #f7f7f7;
   }

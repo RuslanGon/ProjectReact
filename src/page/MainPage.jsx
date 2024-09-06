@@ -17,31 +17,34 @@ const getNavLinkClassName = ({ isActive }) => {
 const MainPage = () => {
   return (
     <>
-    <div className={css.header}>
-      <NavLink className={css.mainlogo} to="/">
-        <img className={css.logo} src={logo} alt="logo" />
-      </NavLink>
-      <nav className={css.nav}>
-        <NavLink className={getNavLinkClassName} to="/">
-          Home
+      <div className={css.header}>
+        <NavLink className={css.mainlogo} to="/">
+          <img className={css.logo} src={logo} alt="logo" />
         </NavLink>
-        <NavLink className={getNavLinkClassName} to="/catalog">
-          Catalog
-        </NavLink>
-      </nav>
+        <nav className={css.nav}>
+          <NavLink className={getNavLinkClassName} to="/">
+            Home
+          </NavLink>
+          <NavLink className={getNavLinkClassName} to="/catalog">
+            Catalog
+          </NavLink>
+        </nav>
+      </div>
+      <>
       <main>
-        <Suspense fallback={<Loader />}>
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/catalog" element={<CatalogPage />} />
-            <Route path="*" element={<NotFoundPage />} />
-          </Routes>
-        </Suspense>
-      </main>
-    </div>
-    <section className={css.section}>
-
-    </section>
+          <Suspense fallback={<Loader />}>
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/catalog" element={<CatalogPage />} />
+              <Route path="*" element={<NotFoundPage />} />
+            </Routes>
+          </Suspense>
+        </main>
+        </>
+      <section className={css.section}>
+        <h1 className={css.title}>Campers of your dreams</h1>
+        <p className={css.text}>You can find everything you want in our catalog</p>
+      </section>
     </>
   );
 };
