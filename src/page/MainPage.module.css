@@ -29,3 +29,11 @@
 .navLink:hover {
     text-decoration: underline;
 }
+
+.mainlogo img {
+    transition: filter 0.3s ease; /* Плавный переход для эффекта */
+  }
+  
+  .mainlogo:hover img {
+    filter: brightness(0) saturate(10%) invert(34%) sepia(100%) saturate(2600%) hue-rotate(-1deg) brightness(133%) contrast(106%);
+  }

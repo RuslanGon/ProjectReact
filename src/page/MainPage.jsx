@@ -12,7 +12,7 @@ const getNavLinkClassName = ({ isActive }) => {
 const MainPage = () => {
   return (
     <div className={css.header}>
-      <NavLink className={css.mainlogo}>
+      <NavLink className={css.mainlogo} to="/">
         <img className={css.logo} src={logo} alt="logo" />
       </NavLink>
       <nav className={css.nav}>
