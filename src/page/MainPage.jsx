@@ -31,11 +31,8 @@ const MainPage = () => {
         </nav>
       </div>
     
-      <section className={css.section}>
-        <h1 className={css.title}>Campers of your dreams</h1>
-        <p className={css.text}>You can find everything you want in our catalog</p>
-      </section>
-      <>
+      
+      
       <main>
           <Suspense fallback={<Loader />}>
             <Routes>
@@ -45,7 +42,7 @@ const MainPage = () => {
             </Routes>
           </Suspense>
         </main>
-        </>
+    <footer><h2>hello</h2></footer>
     </>
   );
 };

@@ -1,0 +1,30 @@
+.section {
+    width: 1440px;
+    height: 696px;
+    background-image: url(../assets/images/main-picture.jpg);
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+  }
+
+  .title {
+font-weight: 600;
+font-size: 48px;
+line-height: 0.66667;
+color: #f7f7f7;
+margin-left: 64px;
+padding-top: 260px;
+  }
+
+  .text {
+font-weight: 600;
+font-size: 24px;
+line-height: 1.33333;
+margin-left: 64px;
+color: #f7f7f7;
+margin-top: 16px;
+  }
+
+  .link {
+    color: #f7f7f7;
+  }
