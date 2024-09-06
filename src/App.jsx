@@ -1,15 +1,15 @@
 
 import './App.css'
 import 'normalize.css';
-import logo from '../src/assets/images/logo.svg'
-import css from './App.module.css'
+import MainPage from './page/MainPage.jsx';
 
 function App() {
 
 
   return (
     <>
-    <img className={css.logo} src={logo} alt="logo" />
+    <MainPage />
+    
     </>
   )
 }
