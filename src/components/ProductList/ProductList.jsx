@@ -3,6 +3,10 @@ import css from "../ProductList/ProductList.module.css";
 import fav from "../../assets/images/fav.png";
 import star from "../../assets/images/star.png";
 import map from "../../assets/images/map.png";
+import cah from "../../assets/images/cah.png";
+import oil from "../../assets/images/oil.png";
+import cup from "../../assets/images/cup.png";
+import wind from "../../assets/images/wind.png";
 
 
 const ProductList = ({ products }) => {
@@ -36,11 +40,25 @@ const ProductList = ({ products }) => {
               </div>
             </div>
             <p className={css.desc}>The pictures shown here are example vehicles of the respective...</p>
-            <p>automatic</p>
-            <p>petrol</p>
+            <div className={css.divcah}>
+              <img className={css.cah} src={cah} alt="" />
+            <p className={css.auto}>Automatic</p>
+            </div>
+            <div className={css.divcah}>
+              <img className={css.oil} src={oil} alt="" />
+            <p>Petrol</p>
+            </div>
+            <div className={css.divcah}>
+            <img className={css.cup} src={cup} alt="" />
             <p>Kitchen</p>
+            </div>
+            <br />
+            <div className={css.divcah}>
+              <img className={css.wind} src={wind} alt="" />
             <p>AC</p>
-            <button>Show more</button>
+            </div>
+            <br />
+            <button className={css.button} type="button" >Show more</button>
           </li>
         ))}
     </ul>

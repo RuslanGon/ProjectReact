@@ -61,3 +61,58 @@ font-size: 16px;
 line-height: 1.5;
 color: #101828;
 }
+
+.cah {
+    width: 20px;
+    height: 15px;
+}
+
+.divcah {
+    display: inline-flex; /* Используйте inline-flex для автоматической ширины по содержимому */
+    gap: 15px;
+    border-radius: 100px;
+    padding: 12px 18px; /* Внутренние отступы */
+    background: #f2f4f7;
+    align-items: center; 
+    justify-content: center; 
+    margin: 8px; 
+}
+
+.auto {
+font-weight: 500;
+font-size: 16px;
+line-height: 1.5;
+text-align: center;
+color: #101828;
+}
+
+.oil {
+    width: 20px;
+    height: 20px;
+}
+
+.cup {
+    height: 20px;
+    width: 20px;
+}
+
+.wind {
+    height: 20px;
+    width: 20px; 
+}
+
+.button {
+    display: inline-flex; 
+    align-items: center;
+    justify-content: center; 
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+    color: #fff;
+    border-radius: 200px;
+    padding: 16px 60px;
+    background: #e44848;
+    text-align: center; 
+    white-space: nowrap; 
+  }
