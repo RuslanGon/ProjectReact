@@ -16,8 +16,9 @@ gap: 24px;
 
 .img{
     border-radius: 10px;
-    width: 292px;
+    width: 320px;
     height: 320px;
+    object-fit: cover
 }
 
 .title {
