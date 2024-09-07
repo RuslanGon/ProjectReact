@@ -18,7 +18,7 @@ gap: 24px;
 
 .img{
     border-radius: 10px;
-    width: 320px;
+    width: 292px;
     height: 320px;
     object-fit: cover
 }
@@ -127,7 +127,7 @@ color: #101828;
     display: flex;
     gap: 12px;
     align-items: center;
-    padding-left: 70px; /* Отступ слева для .divprice */
+    padding-left: 70px;
   }
 
   .divname {
