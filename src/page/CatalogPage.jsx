@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Loader from "../components/Loader/Loader.jsx";
 import Error from "../components/Error/Error.jsx";
-import { requestProducts } from "../services/api.js";
+import { requestProducts, requestProductsByQuery } from "../services/api.js";
 import ProductList from "../components/ProductList/ProductList.jsx";
 import SearchForm from "../components/SearchForm/SearchForm.jsx";
 
@@ -27,6 +27,25 @@ const CatalogPage = () => {
     }
     fetchProducts();
   }, []);
+
+  useEffect(() => {
+    if(query.length === 0) return
+    async function fetchProductsByQuery() {
+      try {
+        setIsLoading(true);
+        const data  = await requestProductsByQuery(query);
+        console.log(data);
+        setProducts(data.items);
+      } catch (error) {
+        console.error("Error fetching data: ", error);
+        setIsError(true); 
+      } finally {
+        setIsLoading(false); 
+      }
+    }
+    fetchProductsByQuery();
+
+  }, [query])
 
  const onSetSearchQuery = (searchTerm) => {
    setQuery(searchTerm);
