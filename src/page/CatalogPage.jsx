@@ -4,12 +4,22 @@ import Error from "../components/Error/Error.jsx";
 import { requestProducts, requestProductsByQuery } from "../services/api.js";
 import ProductList from "../components/ProductList/ProductList.jsx";
 import SearchForm from "../components/SearchForm/SearchForm.jsx";
+import css from "./CatalogPage.module.css"; 
 
 const CatalogPage = () => {
   const [products, setProducts] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [query, setQuery] = useState('')
+
+  useEffect(() => {
+    document.body.classList.add(css.pageBackground);
+
+    return () => {
+      document.body.classList.remove(css.pageBackground);
+    };
+  }, []);
+  
 
   useEffect(() => {
     async function fetchProducts() {
