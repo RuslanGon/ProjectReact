@@ -22,21 +22,23 @@ const ProductList = ({ products }) => {
               />
             </div>
             <div>
-              <h2 className={css.title}>{product.name}</h2>
-              <div>
-                <p className={css.title}>{product.price}</p>
-                <Link to="/favorite">
-                  <img className={css.fav} src={fav} alt="" />
-                </Link>
+              <div className={css.divname}>
+                <h2 className={css.title}>{product.name}</h2>
+                <div className={css.divprice}>
+                  <p className={css.title}>€ {product.price}.00</p>
+                  <Link to="/favorite">
+                    <img className={css.fav} src={fav} alt="" />
+                  </Link>
+                </div>
               </div>
-              <div>
-                <div>
+              <div className={css.starmap}>
+                <div className={css.divstar}>
                   <img className={css.star} src={star} alt="" />
                   <p className={css.rating}>
                     {product.rating} ({product.reviews?.length || 0} Reviews)
                   </p>
                 </div>
-                <div>
+                <div className={css.divstar}>
                   <img className={css.map} src={map} alt="" />
                   <h3 className={css.location}>{product.location}</h3>
                 </div>
