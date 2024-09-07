@@ -1,10 +1,18 @@
-
+import { useEffect, useState } from "react"
 
 
 const CatalogPage = () => {
+
+  const [ products, setProducts] = useState(null)
+
+  useEffect(() => {
+    
+  }, [])
+
   return (
    <ul>
     <li>
+      <img src="" alt="" />
       <h2>name</h2>
       <p>price</p>
       <p>rating</p>
