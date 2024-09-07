@@ -1,6 +1,6 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-
+import css from '../SearchForm/SearchForm.module.css'
 
 const searchSchema = Yup.object({
 searchTerm: Yup.string().required("Search term is required"),
@@ -24,7 +24,7 @@ const SearchForm = ({ onSetSearchQuery }) => {
       onSubmit={handleSubmit}
       validationSchema={searchSchema}
     >
-      <Form>
+      <Form className={css.form}>
         <h2>Search campers by brand or name</h2>
         <label>
           <Field type="text" name="searchTerm" placeholder="search" />
