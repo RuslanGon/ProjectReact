@@ -9,7 +9,7 @@ margin-left: 64px;
     border: 1px solid #dadde1;
 border-radius: 20px;
 padding: 24px;
-width: 888px;
+/* width: 888px; */
 background: #fff;
 margin-bottom: 25px;
 display: flex;
@@ -133,6 +133,8 @@ color: #101828;
   .divname {
       display: flex;
       margin-bottom: 8px;
+      justify-content: space-between;
+      width: 524px;
   }
 
   .divstar {
