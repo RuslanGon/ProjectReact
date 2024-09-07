@@ -1,0 +1,63 @@
+.list {
+width: 888px;
+height: 1568px;
+}
+
+.item {
+    border: 1px solid #dadde1;
+border-radius: 20px;
+padding: 24px;
+width: 888px;
+background: #fff;
+margin-bottom: 25px;
+}
+
+.img{
+    border-radius: 10px;
+    width: 292px;
+    height: 320px;
+}
+
+.title {
+font-weight: 600;
+font-size: 24px;
+line-height: 1.33333;
+color: #101828;
+}
+
+.fav {
+    width: 25px;
+    height: 24px;
+}
+
+.star {
+    width: 16px;
+    height: 16px;
+}
+
+.rating {
+font-weight: 400;
+font-size: 16px;
+line-height: 1.5;
+text-decoration: underline;
+color: #101828;
+}
+
+.map {
+    width: 16px;
+    height: 16px;
+}
+
+.desc {
+font-weight: 400;
+font-size: 16px;
+line-height: 1.5;
+color: #475467;
+}
+
+.location {
+font-weight: 400;
+font-size: 16px;
+line-height: 1.5;
+color: #101828;
+}
