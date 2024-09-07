@@ -1,17 +1,21 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import Loader from "../components/Loader/Loader.jsx";
 
 const CatalogPage = () => {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState(null);
+  const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
     async function fetchProducts() {
       try {
+        setIsLoading(true)
         const { data } = await axios.get(
           "https://66b1f8e71ca8ad33d4f5f63e.mockapi.io/campers"
         );
         console.log(data);
         setProducts(data.items);
+        setIsLoading(false)
       } catch (error) {
         console.error("Error fetching data: ", error);
       }
@@ -20,6 +24,8 @@ const CatalogPage = () => {
   }, []);
 
   return (
+    <>
+    {isLoading &&  <Loader />}
     <ul>
       {Array.isArray(products) &&
         products.map((product) => { 
@@ -37,8 +43,10 @@ const CatalogPage = () => {
             <p>AC</p>
             <button>Show more</button>
           </li>
+          
 )})}
     </ul>
+    </>
   );
 };
 
