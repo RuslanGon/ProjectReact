@@ -14,7 +14,7 @@ const FORM_INITIAL_VALUES = {
 const SearchForm = ({ onSetSearchQuery }) => {
   const handleSubmit = (values, actions) => {
     console.log(values);
-    onSetSearchQuery(values);
+    onSetSearchQuery(values.searchTerm);
     actions.resetForm();
   };
 
