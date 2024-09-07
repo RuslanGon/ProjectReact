@@ -3,6 +3,7 @@ import Loader from "../components/Loader/Loader.jsx";
 import Error from "../components/Error/Error.jsx";
 import { requestProducts } from "../services/api.js";
 import ProductList from "../components/ProductList/ProductList.jsx";
+import SearchForm from "../components/SearchForm/SearchForm.jsx";
 
 const CatalogPage = () => {
   const [products, setProducts] = useState(null);
@@ -27,13 +28,16 @@ const CatalogPage = () => {
   }, []);
 
   return (
-    <div>
+    <>
       {isLoading && <Loader />}
       {isError && <Error />}
       {products && (
+        <>
+        <SearchForm />
        <ProductList products={products} />
+       </>
       )}
-    </div>
+    </>
   );
 };
 
