@@ -11,10 +11,10 @@ const FORM_INITIAL_VALUES = {
   searchTerm: ''
 };
 
-const SearchForm = ({ onAddUsers }) => {
+const SearchForm = ({ onSetSearchQuery }) => {
   const handleSubmit = (values, actions) => {
     console.log(values);
-    onAddUsers(values);
+    onSetSearchQuery(values);
     actions.resetForm();
   };
 

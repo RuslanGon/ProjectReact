@@ -9,6 +9,7 @@ const CatalogPage = () => {
   const [products, setProducts] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
+  const [query, setQuery] = useState('')
 
   useEffect(() => {
     async function fetchProducts() {
@@ -27,13 +28,17 @@ const CatalogPage = () => {
     fetchProducts();
   }, []);
 
+ const onSetSearchQuery = (searchTerm) => {
+   setQuery(searchTerm);
+ }; 
+
   return (
     <>
       {isLoading && <Loader />}
       {isError && <Error />}
       {products && (
         <>
-        <SearchForm />
+        <SearchForm onSetSearchQuery={onSetSearchQuery} />
        <ProductList products={products} />
        </>
       )}
