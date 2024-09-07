@@ -1,13 +1,20 @@
+import axios from "axios"
 import { useEffect, useState } from "react"
 
 
 const CatalogPage = () => {
 
-  const [ products, setProducts] = useState(null)
+  const [products, setProducts] = useState(null);
 
   useEffect(() => {
-    
-  }, [])
+    async function fetchProducts() {
+      const { data } = await axios.get(
+        "https://66b1f8e71ca8ad33d4f5f63e.mockapi.io/campers"
+      );
+      console.log(data);
+    }
+    fetchProducts();
+  }, []);
 
   return (
    <ul>
