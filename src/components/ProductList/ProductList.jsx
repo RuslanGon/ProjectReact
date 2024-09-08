@@ -57,7 +57,7 @@ const ProductList = ({ products }) => {
                       <img
                         className={css.fav}
                         src={isFavorited ? favRed : fav} // Меняем иконку в зависимости от состояния
-                        alt="Избранное"
+                        alt="favorite"
                       />
                     </a>
                   </div>
