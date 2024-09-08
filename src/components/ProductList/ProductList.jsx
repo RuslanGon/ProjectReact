@@ -1,6 +1,8 @@
-import { Link } from "react-router-dom";
+import { useState } from "react";
+// import { Link } from "react-router-dom";
 import css from "../ProductList/ProductList.module.css";
 import fav from "../../assets/images/fav.png";
+import favRed from "../../assets/images/fav-red.png"; // Добавьте красную иконку
 import star from "../../assets/images/star.png";
 import map from "../../assets/images/map.png";
 import cah from "../../assets/images/cah.png";
@@ -9,68 +11,98 @@ import cup from "../../assets/images/cup.png";
 import wind from "../../assets/images/wind.png";
 
 const ProductList = ({ products }) => {
+  // Состояние для избранных товаров
+  const [favorites, setFavorites] = useState([]);
+
+  // Функция для переключения статуса избранного
+  const toggleFavorite = (productId) => {
+    setFavorites((prevFavorites) => {
+      if (prevFavorites.includes(productId)) {
+        // Убираем из избранного
+        return prevFavorites.filter((id) => id !== productId);
+      } else {
+        // Добавляем в избранное
+        return [...prevFavorites, productId];
+      }
+    });
+  };
+
   return (
     <ul className={css.list}>
       {Array.isArray(products) &&
-        products.map((product) => (
-          <li className={css.item} key={product.id}>
-            <div>
-              <img
-                className={css.img}
-                src={product.gallery[0]?.thumb}
-                alt={product.name}
-              />
-            </div>
-            <div>
-              <div className={css.divname}>
-                <h2 className={css.title}>{product.name}</h2>
-                <div className={css.divprice}>
-                  <p className={css.title}>€ {product.price}.00</p>
-                  <Link to="/favorite">
-                    <img className={css.fav} src={fav} alt="" />
-                  </Link>
+        products.map((product) => {
+          const isFavorited = favorites.includes(product.id); // Проверяем, в избранном ли товар
+
+          return (
+            <li className={css.item} key={product.id}>
+              <div>
+                <img
+                  className={css.img}
+                  src={product.gallery[0]?.thumb}
+                  alt={product.name}
+                />
+              </div>
+              <div>
+                <div className={css.divname}>
+                  <h2 className={css.title}>{product.name}</h2>
+                  <div className={css.divprice}>
+                    <p className={css.title}>€ {product.price}.00</p>
+                    <a
+                      href="#"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        toggleFavorite(product.id); // Переключаем избранное
+                      }}
+                    >
+                      <img
+                        className={css.fav}
+                        src={isFavorited ? favRed : fav} // Меняем иконку в зависимости от состояния
+                        alt="Избранное"
+                      />
+                    </a>
+                  </div>
                 </div>
-              </div>
-              <div className={css.starmap}>
-                <div className={css.divstar}>
-                  <img className={css.star} src={star} alt="" />
-                  <p className={css.rating}>
-                    {product.rating} ({product.reviews?.length || 0} Reviews)
-                  </p>
+                <div className={css.starmap}>
+                  <div className={css.divstar}>
+                    <img className={css.star} src={star} alt="" />
+                    <p className={css.rating}>
+                      {product.rating} ({product.reviews?.length || 0} Reviews)
+                    </p>
+                  </div>
+                  <div className={css.divstar}>
+                    <img className={css.map} src={map} alt="" />
+                    <h3 className={css.location}>{product.location}</h3>
+                  </div>
                 </div>
-                <div className={css.divstar}>
-                  <img className={css.map} src={map} alt="" />
-                  <h3 className={css.location}>{product.location}</h3>
+                <p className={css.desc}>
+                  The pictures shown here are example vehicles of the
+                  respective...
+                </p>
+                <div className={css.divcah}>
+                  <img className={css.cah} src={cah} alt="" />
+                  <p className={css.auto}>Automatic</p>
                 </div>
+                <div className={css.divcah}>
+                  <img className={css.oil} src={oil} alt="" />
+                  <p>Petrol</p>
+                </div>
+                <div className={css.divcah}>
+                  <img className={css.cup} src={cup} alt="" />
+                  <p>Kitchen</p>
+                </div>
+                <br />
+                <div className={css.divcah}>
+                  <img className={css.wind} src={wind} alt="" />
+                  <p>AC</p>
+                </div>
+                <br />
+                <button className={css.button} type="button">
+                  Show more
+                </button>
               </div>
-              <p className={css.desc}>
-                The pictures shown here are example vehicles of the
-                respective...
-              </p>
-              <div className={css.divcah}>
-                <img className={css.cah} src={cah} alt="" />
-                <p className={css.auto}>Automatic</p>
-              </div>
-              <div className={css.divcah}>
-                <img className={css.oil} src={oil} alt="" />
-                <p>Petrol</p>
-              </div>
-              <div className={css.divcah}>
-                <img className={css.cup} src={cup} alt="" />
-                <p>Kitchen</p>
-              </div>
-              <br />
-              <div className={css.divcah}>
-                <img className={css.wind} src={wind} alt="" />
-                <p>AC</p>
-              </div>
-              <br />
-              <button className={css.button} type="button">
-                Show more
-              </button>
-            </div>
-          </li>
-        ))}
+            </li>
+          );
+        })}
     </ul>
   );
 };
