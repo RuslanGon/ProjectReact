@@ -2,6 +2,8 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import css from '../SearchForm/SearchForm.module.css'
 import Filter from "../Filter/Filter.jsx";
+import map from "../../assets/images/map.png";
+
 
 const searchSchema = Yup.object({
 searchTerm: Yup.string().required("Search term is required"),
@@ -27,8 +29,9 @@ const SearchForm = ({ onSetSearchQuery }) => {
       <Form className={css.form}>
         <label>
           <p className={css.loc}>location</p>
-          <Field type="text" name="searchTerm" placeholder="Kyiv, Ukraine" />
+          <Field className={css.input} type="text" name="searchTerm" placeholder="Ukraine" />
           <ErrorMessage name="searchTerm" component="span" />
+          <img className={css.map} src={map} alt="map" />
         </label>
         <br />
         <Filter />

@@ -23,12 +23,13 @@
 
 .active {
     color: rgb(215, 19, 19);
-
-}
-
-.navLink:hover {
     text-decoration: underline;
+
 }
+
+/* .navLink:hover {
+    text-decoration: underline;
+} */
 
 .mainlogo img {
     transition: filter 0.3s ease; /* Плавный переход для эффекта */
