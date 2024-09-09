@@ -13,3 +13,12 @@ export const requestProductsByQuery = async (query = '') => {
   );
   return data;
 };
+
+export const requestProductsByIds = async (ids) => {
+  const requests = ids.map(id =>
+    fetch(`https://66b1f8e71ca8ad33d4f5f63e.mockapi.io/campers/${id}`)
+  );
+  const responses = await Promise.all(requests);
+  const data = await Promise.all(responses.map(res => res.json()));
+  return { items: data };
+};

@@ -1,8 +1,7 @@
 import { useState } from "react";
-// import { Link } from "react-router-dom";
 import css from "../ProductList/ProductList.module.css";
 import fav from "../../assets/images/fav.png";
-import favRed from "../../assets/images/fav-red.png"; // Добавьте красную иконку
+import favRed from "../../assets/images/fav-red.png";
 import star from "../../assets/images/star.png";
 import map from "../../assets/images/map.png";
 import cah from "../../assets/images/cah.png";
@@ -11,17 +10,13 @@ import cup from "../../assets/images/cup.png";
 import wind from "../../assets/images/wind.png";
 
 const ProductList = ({ products }) => {
-  // Состояние для избранных товаров
   const [favorites, setFavorites] = useState([]);
 
-  // Функция для переключения статуса избранного
   const toggleFavorite = (productId) => {
     setFavorites((prevFavorites) => {
       if (prevFavorites.includes(productId)) {
-        // Убираем из избранного
         return prevFavorites.filter((id) => id !== productId);
       } else {
-        // Добавляем в избранное
         return [...prevFavorites, productId];
       }
     });
@@ -31,14 +26,14 @@ const ProductList = ({ products }) => {
     <ul className={css.list}>
       {Array.isArray(products) &&
         products.map((product) => {
-          const isFavorited = favorites.includes(product.id); // Проверяем, в избранном ли товар
+          const isFavorited = favorites.includes(product.id);
 
           return (
             <li className={css.item} key={product.id}>
               <div>
                 <img
                   className={css.img}
-                  src={product.gallery[0]?.thumb}
+                  src={product.gallery && product.gallery.length > 0 ? product.gallery[0]?.thumb : ''}
                   alt={product.name}
                 />
               </div>
@@ -51,12 +46,12 @@ const ProductList = ({ products }) => {
                       href="#"
                       onClick={(e) => {
                         e.preventDefault();
-                        toggleFavorite(product.id); // Переключаем избранное
+                        toggleFavorite(product.id);
                       }}
                     >
                       <img
                         className={css.fav}
-                        src={isFavorited ? favRed : fav} // Меняем иконку в зависимости от состояния
+                        src={isFavorited ? favRed : fav}
                         alt="favorite"
                       />
                     </a>
