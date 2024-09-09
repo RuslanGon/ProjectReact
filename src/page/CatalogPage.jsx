@@ -12,13 +12,13 @@ const CatalogPage = () => {
   const [isError, setIsError] = useState(false);
   const [query, setQuery] = useState('')
 
-  useEffect(() => {
-    document.body.classList.add(css.pageBackground);
+  // useEffect(() => {
+  //   document.body.classList.add(css.pageBackground);
 
-    return () => {
-      document.body.classList.remove(css.pageBackground);
-    };
-  }, []);
+  //   return () => {
+  //     document.body.classList.remove(css.pageBackground);
+  //   };
+  // }, []);
   
 
   useEffect(() => {
@@ -66,10 +66,10 @@ const CatalogPage = () => {
       {isLoading && <Loader />}
       {isError && <Error />}
       {products && (
-        <>
+        <div className={css.div}>
         <SearchForm onSetSearchQuery={onSetSearchQuery} />
        <ProductList products={products} />
-       </>
+       </div>
       )}
     </>
   );

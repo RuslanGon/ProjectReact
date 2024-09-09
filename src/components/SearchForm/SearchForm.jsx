@@ -1,6 +1,7 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import css from '../SearchForm/SearchForm.module.css'
+import Filter from "../Filter/Filter.jsx";
 
 const searchSchema = Yup.object({
 searchTerm: Yup.string().required("Search term is required"),
@@ -25,11 +26,12 @@ const SearchForm = ({ onSetSearchQuery }) => {
       validationSchema={searchSchema}>
       <Form className={css.form}>
         <label>
-          <p>location</p>
+          <p className={css.loc}>location</p>
           <Field type="text" name="searchTerm" placeholder="Kyiv, Ukraine" />
           <ErrorMessage name="searchTerm" component="span" />
         </label>
         <br />
+        <Filter />
       <button type="submit" aria-label="Search">Search</button>
       </Form>
     </Formik>
