@@ -22,12 +22,11 @@ const SearchForm = ({ onSetSearchQuery }) => {
     <Formik
       initialValues={FORM_INITIAL_VALUES}
       onSubmit={handleSubmit}
-      validationSchema={searchSchema}
-    >
+      validationSchema={searchSchema}>
       <Form className={css.form}>
-        <h2>Search campers by brand or name</h2>
         <label>
-          <Field type="text" name="searchTerm" placeholder="search" />
+          <p>location</p>
+          <Field type="text" name="searchTerm" placeholder="Kyiv, Ukraine" />
           <ErrorMessage name="searchTerm" component="span" />
         </label>
         <br />
