@@ -4,6 +4,7 @@
     line-height: 1.5;
     color: #475467;
     margin-bottom: 32px;
+    margin-top: 24px;
 }
 
 .title {
@@ -25,6 +26,7 @@
     grid-template-columns: repeat(3, 1fr); /* 3 элемента в первой строке */
     grid-auto-rows: auto;
     gap: 12px;
+    margin-bottom: 32px;
 }
 
 .filteritem {
