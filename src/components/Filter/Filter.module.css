@@ -1,0 +1,55 @@
+.filter {
+font-weight: 500;
+font-size: 16px;
+line-height: 1.5;
+color: #475467;
+margin-bottom: 32px;
+}
+
+.title {
+font-weight: 600;
+font-size: 20px;
+line-height: 1.2;
+color: #101828;
+margin-bottom: 24px;
+}
+
+.line {
+    stroke-width: 1px;
+stroke: #dadde1;
+margin-bottom: 24px;
+}
+
+.filterlist {
+    display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 элемента в первой строке */
+  grid-auto-rows: auto;
+  gap: 12px; /* Промежуток между элементами */
+}
+
+.filteritem {
+    border: 1px solid #dadde1;
+border-radius: 12px;
+padding: 16px 40px;
+width: 112px;
+height: 96px;
+display: flex;
+flex-direction: column;
+align-items: center; /* Горизонтальное выравнивание по центру */
+justify-content: center;
+}
+
+.logo {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 8px;
+}
+
+.logotext {
+font-weight: 500;
+font-size: 16px;
+line-height: 1.5;
+letter-spacing: -0.01em;
+text-align: center;
+color: #101828;
+}

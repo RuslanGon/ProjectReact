@@ -30,12 +30,12 @@ const SearchForm = ({ onSetSearchQuery }) => {
         <label>
           <p className={css.loc}>location</p>
           <Field className={css.input} type="text" name="searchTerm" placeholder="Ukraine" />
-          <ErrorMessage name="searchTerm" component="span" />
+          <ErrorMessage className={css.errorMessage} name="searchTerm" component="span" />
           <img className={css.map} src={map} alt="map" />
         </label>
         <br />
         <Filter />
-      <button type="submit" aria-label="Search">Search</button>
+      <button className={css.button} type="submit" aria-label="Search">Search</button>
       </Form>
     </Formik>
   );
