@@ -9,6 +9,7 @@ import oil from "../../assets/images/oil.png";
 import cup from "../../assets/images/cup.png";
 import wind from "../../assets/images/wind.png";
 import del from "../../assets/images/del.png"; 
+import { Link } from "react-router-dom";
 
 const ProductList = ({ products, showDeleteIcon, handleDelete }) => {
   const idsFromLS = JSON.parse(localStorage.getItem("ids"));
@@ -52,6 +53,7 @@ const ProductList = ({ products, showDeleteIcon, handleDelete }) => {
                   <h2 className={css.title}>{product.name}</h2>
                   <div className={css.divprice}>
                     <p className={css.title}>€ {product.price}.00</p>
+                    <Link to="/favorite">
                     <button
                       className={css.butfav}
                       onClick={() => toggleFavorite(product.id)}
@@ -62,6 +64,7 @@ const ProductList = ({ products, showDeleteIcon, handleDelete }) => {
                         alt="favorite"
                       />
                     </button>
+                    </Link>
                   </div>
                 </div>
                 <div className={css.starmap}>
@@ -102,13 +105,11 @@ const ProductList = ({ products, showDeleteIcon, handleDelete }) => {
                   <button className={css.button} type="button">
                     Show more
                   </button>
-
                   {/* Условное отображение иконки удаления на странице Favorites */}
                   {showDeleteIcon && (
                     <button
                       className={css.deleteBtn}
-                      onClick={() => handleDelete(product.id)}
-                    >
+                      onClick={() => handleDelete(product.id)}>
                       <img className={css.del} src={del} alt="Delete" />
                     </button>
                   )}
