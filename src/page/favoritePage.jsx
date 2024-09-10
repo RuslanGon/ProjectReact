@@ -1,22 +1,17 @@
-import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Loader from "../components/Loader/Loader.jsx";
 import Error from "../components/Error/Error.jsx";
 import { requestProductsByIds } from "../services/api.js";
 import ProductList from "../components/ProductList/ProductList.jsx";
-// import css from "./FavoritePage.module.css"; 
+// import css from "./FavoritePage.module.css";
 
 const FavoritePage = () => {
-  const location = useLocation();
   const [products, setProducts] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
 
   useEffect(() => {
-    console.log(location.search); // Проверить, что в URL есть query-параметры
-    const params = new URLSearchParams(location.search);
-    const ids = params.get('ids')?.split(',') || [];
-    console.log(ids); // Убедитесь, что ids содержит массив ID
+    const ids = JSON.parse(localStorage.getItem("ids")) || [];
 
     if (ids.length > 0) {
       async function fetchFavorites() {
@@ -33,7 +28,7 @@ const FavoritePage = () => {
       }
       fetchFavorites();
     }
-  }, [location.search]);
+  }, []);
 
   return (
     <div>

@@ -10,15 +10,21 @@ import cup from "../../assets/images/cup.png";
 import wind from "../../assets/images/wind.png";
 
 const ProductList = ({ products }) => {
-  const [favorites, setFavorites] = useState([]);
+  const idsFromLS = JSON.parse(localStorage.getItem("ids"));
+  const ids = idsFromLS || [];
+  const [favorites, setFavorites] = useState(ids);
 
   const toggleFavorite = (productId) => {
     setFavorites((prevFavorites) => {
+      let updatedFavorites;
       if (prevFavorites.includes(productId)) {
-        return prevFavorites.filter((id) => id !== productId);
+        updatedFavorites = prevFavorites.filter((id) => id !== productId);
       } else {
-        return [...prevFavorites, productId];
+        updatedFavorites = [...prevFavorites, productId];
       }
+      const data = JSON.stringify(updatedFavorites);
+      localStorage.setItem("ids", data);
+      return updatedFavorites;
     });
   };
 
@@ -33,7 +39,11 @@ const ProductList = ({ products }) => {
               <div>
                 <img
                   className={css.img}
-                  src={product.gallery && product.gallery.length > 0 ? product.gallery[0]?.thumb : ''}
+                  src={
+                    product.gallery && product.gallery.length > 0
+                      ? product.gallery[0]?.thumb
+                      : ""
+                  }
                   alt={product.name}
                 />
               </div>
@@ -42,10 +52,8 @@ const ProductList = ({ products }) => {
                   <h2 className={css.title}>{product.name}</h2>
                   <div className={css.divprice}>
                     <p className={css.title}>€ {product.price}.00</p>
-                    <a
-                      href="#"
-                      onClick={(e) => {
-                        e.preventDefault();
+                    <button
+                      onClick={() => {
                         toggleFavorite(product.id);
                       }}
                     >
@@ -54,7 +62,7 @@ const ProductList = ({ products }) => {
                         src={isFavorited ? favRed : fav}
                         alt="favorite"
                       />
-                    </a>
+                    </button>
                   </div>
                 </div>
                 <div className={css.starmap}>
