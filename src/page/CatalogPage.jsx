@@ -4,7 +4,7 @@ import Error from "../components/Error/Error.jsx";
 import { requestProducts, requestProductsByQuery } from "../services/api.js";
 import ProductList from "../components/ProductList/ProductList.jsx";
 import SearchForm from "../components/SearchForm/SearchForm.jsx";
-import css from "./CatalogPage.module.css"; 
+import css from "./CatalogPage.module.css"; // Ваши стили для CatalogPage
 
 const CatalogPage = () => {
   const [products, setProducts] = useState(null);
@@ -12,54 +12,42 @@ const CatalogPage = () => {
   const [isError, setIsError] = useState(false);
   const [query, setQuery] = useState('')
 
-  // useEffect(() => {
-  //   document.body.classList.add(css.pageBackground);
-
-  //   return () => {
-  //     document.body.classList.remove(css.pageBackground);
-  //   };
-  // }, []);
-  
-
   useEffect(() => {
     async function fetchProducts() {
       try {
         setIsLoading(true);
-        const data  = await requestProducts();
-        console.log(data);
+        const data = await requestProducts();
         setProducts(data.items);
       } catch (error) {
         console.error("Error fetching data: ", error);
-        setIsError(true); 
+        setIsError(true);
       } finally {
-        setIsLoading(false); 
+        setIsLoading(false);
       }
     }
     fetchProducts();
   }, []);
 
   useEffect(() => {
-    if(query.length === 0) return
+    if (query.length === 0) return;
     async function fetchProductsByQuery() {
       try {
         setIsLoading(true);
-        const data  = await requestProductsByQuery(query);
-        console.log(data);
+        const data = await requestProductsByQuery(query);
         setProducts(data.items);
       } catch (error) {
         console.error("Error fetching data: ", error);
-        setIsError(true); 
+        setIsError(true);
       } finally {
-        setIsLoading(false); 
+        setIsLoading(false);
       }
     }
     fetchProductsByQuery();
+  }, [query]);
 
-  }, [query])
-
- const onSetSearchQuery = (searchTerm) => {
-   setQuery(searchTerm);
- }; 
+  const onSetSearchQuery = (searchTerm) => {
+    setQuery(searchTerm);
+  };
 
   return (
     <>
@@ -67,9 +55,9 @@ const CatalogPage = () => {
       {isError && <Error />}
       {products && (
         <div className={css.div}>
-        <SearchForm onSetSearchQuery={onSetSearchQuery} />
-       <ProductList products={products} />
-       </div>
+          <SearchForm onSetSearchQuery={onSetSearchQuery} />
+          <ProductList products={products} isFavoritePage={false} />
+        </div>
       )}
     </>
   );

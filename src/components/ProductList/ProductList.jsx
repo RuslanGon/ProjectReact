@@ -8,8 +8,9 @@ import cah from "../../assets/images/cah.png";
 import oil from "../../assets/images/oil.png";
 import cup from "../../assets/images/cup.png";
 import wind from "../../assets/images/wind.png";
+import del from "../../assets/images/del.png"; // Импортируем иконку удаления
 
-const ProductList = ({ products }) => {
+const ProductList = ({ products, showDeleteIcon, onDelete }) => {
   const idsFromLS = JSON.parse(localStorage.getItem("ids"));
   const ids = idsFromLS || [];
   const [favorites, setFavorites] = useState(ids);
@@ -22,8 +23,7 @@ const ProductList = ({ products }) => {
       } else {
         updatedFavorites = [...prevFavorites, productId];
       }
-      const data = JSON.stringify(updatedFavorites);
-      localStorage.setItem("ids", data);
+      localStorage.setItem("ids", JSON.stringify(updatedFavorites));
       return updatedFavorites;
     });
   };
@@ -52,10 +52,9 @@ const ProductList = ({ products }) => {
                   <h2 className={css.title}>{product.name}</h2>
                   <div className={css.divprice}>
                     <p className={css.title}>€ {product.price}.00</p>
-                    <button className={css.butfav}
-                      onClick={() => {
-                        toggleFavorite(product.id);
-                      }}
+                    <button
+                      className={css.butfav}
+                      onClick={() => toggleFavorite(product.id)}
                     >
                       <img
                         className={css.fav}
@@ -99,9 +98,21 @@ const ProductList = ({ products }) => {
                   <p>AC</p>
                 </div>
                 <br />
-                <button className={css.button} type="button">
-                  Show more
-                </button>
+                <div className={css.divbutton}>
+                  <button className={css.button} type="button">
+                    Show more
+                  </button>
+
+                  {/* Условное отображение иконки удаления на странице Favorites */}
+                  {showDeleteIcon && (
+                    <button
+                      className={css.deleteBtn}
+                      onClick={() => onDelete(product.id)}
+                    >
+                      <img className={css.del} src={del} alt="Delete" />
+                    </button>
+                  )}
+                </div>
               </div>
             </li>
           );

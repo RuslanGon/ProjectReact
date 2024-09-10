@@ -30,11 +30,29 @@ const FavoritePage = () => {
     }
   }, []);
 
+  const handleDelete = (productId) => {
+    // Удаляем товар из избранного и обновляем localStorage
+    const updatedFavorites = products.filter((product) => product.id !== productId);
+    setProducts(updatedFavorites);
+    
+    const storedIds = JSON.parse(localStorage.getItem("ids")) || [];
+    const updatedIds = storedIds.filter((id) => id !== productId);
+    localStorage.setItem("ids", JSON.stringify(updatedIds));
+  };
+
   return (
     <div>
       {isLoading && <Loader />}
       {isError && <Error />}
-      {products && <ProductList products={products} />}
+      <div>
+        {products && (
+          <ProductList
+            products={products}
+            showDeleteIcon={true} // Показываем иконку удаления
+            onDelete={handleDelete} // Обработчик удаления
+          />
+        )}
+      </div>
     </div>
   );
 };
