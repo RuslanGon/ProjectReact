@@ -34,7 +34,6 @@ const ProductList = ({ products, showDeleteIcon, handleDelete }) => {
       {Array.isArray(products) &&
         products.map((product) => {
           const isFavorited = favorites.includes(product.id);
-
           return (
             <li className={css.item} key={product.id}>
               <div>
@@ -56,8 +55,7 @@ const ProductList = ({ products, showDeleteIcon, handleDelete }) => {
                     <Link to="/favorite">
                     <button
                       className={css.butfav}
-                      onClick={() => toggleFavorite(product.id)}
-                    >
+                      onClick={() => toggleFavorite(product.id)}>
                       <img
                         className={css.fav}
                         src={isFavorited ? favRed : fav}
