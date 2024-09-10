@@ -49,7 +49,7 @@ const FavoritePage = () => {
           <ProductList
             products={products}
             showDeleteIcon={true} // Показываем иконку удаления
-            onDelete={handleDelete} // Обработчик удаления
+            handleDelete={handleDelete} // Обработчик удаления
           />
         )}
       </div>

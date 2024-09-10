@@ -8,9 +8,9 @@ import cah from "../../assets/images/cah.png";
 import oil from "../../assets/images/oil.png";
 import cup from "../../assets/images/cup.png";
 import wind from "../../assets/images/wind.png";
-import del from "../../assets/images/del.png"; // Импортируем иконку удаления
+import del from "../../assets/images/del.png"; 
 
-const ProductList = ({ products, showDeleteIcon, onDelete }) => {
+const ProductList = ({ products, showDeleteIcon, handleDelete }) => {
   const idsFromLS = JSON.parse(localStorage.getItem("ids"));
   const ids = idsFromLS || [];
   const [favorites, setFavorites] = useState(ids);
@@ -107,7 +107,7 @@ const ProductList = ({ products, showDeleteIcon, onDelete }) => {
                   {showDeleteIcon && (
                     <button
                       className={css.deleteBtn}
-                      onClick={() => onDelete(product.id)}
+                      onClick={() => handleDelete(product.id)}
                     >
                       <img className={css.del} src={del} alt="Delete" />
                     </button>
