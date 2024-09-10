@@ -8,6 +8,7 @@ import CatalogPage from './CatalogPage.jsx';
 import NotFoundPage from './NotFoundPage.jsx';
 import Loader from '../components/Loader/Loader.jsx';
 import FavoritePage from './favoritePage.jsx';
+import Card from '../components/Card/Card.jsx';
 
 const getNavLinkClassName = ({ isActive }) => {
   return clsx(css.navLink, {
@@ -39,6 +40,7 @@ const MainPage = () => {
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/catalog" element={<CatalogPage />} />
+              <Route path='/products/:productId'  element={<Card/>}/>
               <Route path="/favorite" element={<FavoritePage />} />
               <Route path="*" element={<NotFoundPage />} />
             </Routes>

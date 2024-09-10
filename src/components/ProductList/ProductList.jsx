@@ -100,9 +100,9 @@ const ProductList = ({ products, showDeleteIcon, handleDelete }) => {
                 </div>
                 <br />
                 <div className={css.divbutton}>
-                  <button className={css.button} type="button">
+                  <Link to={`/products/${product.id}`} className={css.button}>
                     Show more
-                  </button>
+                  </Link>
                   {/* Условное отображение иконки удаления на странице Favorites */}
                   {showDeleteIcon && (
                     <button
