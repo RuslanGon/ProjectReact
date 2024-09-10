@@ -36,6 +36,10 @@ color: #101828;
     height: 24px;
 }
 
+.butfav {
+    background-color: transparent;
+}
+
 .star {
     width: 16px;
     height: 16px;

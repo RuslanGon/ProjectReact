@@ -52,7 +52,7 @@ const ProductList = ({ products }) => {
                   <h2 className={css.title}>{product.name}</h2>
                   <div className={css.divprice}>
                     <p className={css.title}>€ {product.price}.00</p>
-                    <button
+                    <button className={css.butfav}
                       onClick={() => {
                         toggleFavorite(product.id);
                       }}
