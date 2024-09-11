@@ -69,10 +69,11 @@ const Card = () => {
           </p>
         </div>
       )}
-      <Link to={"features"}>Features</Link>
-      <Link to={"reviews"}>Reviews</Link>
+      <Link className={css.rout} to={"features"}>Features</Link>
+      <Link className={css.rout} to={"reviews"}>Reviews</Link>
+      <hr className={css.line} />
       <Routes>
-        <Route path="features" element={<FeaturesPage />} />
+        <Route className={css.rout} path="features" element={<FeaturesPage />} />
         <Route path="reviews" element={<ReviewsPage />} />
       </Routes>
     </div>
