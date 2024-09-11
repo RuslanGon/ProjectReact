@@ -9,6 +9,7 @@ import ReviewsPage from "./ReviewsPage.jsx";
 import star from "../../assets/images/star.png";
 import map from "../../assets/images/map.png";
 
+
 const Card = () => {
   const { productId } = useParams();
   const [productDetails, setProductDetails] = useState(null);
@@ -72,6 +73,7 @@ const Card = () => {
       <Link className={css.rout} to={"features"}>Features</Link>
       <Link className={css.rout} to={"reviews"}>Reviews</Link>
       <hr className={css.line} />
+
       <Routes>
         <Route className={css.rout} path="features" element={<FeaturesPage />} />
         <Route path="reviews" element={<ReviewsPage />} />
