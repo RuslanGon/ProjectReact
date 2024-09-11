@@ -32,3 +32,35 @@ margin-bottom: 24px;
     color: #101828;
     margin-bottom: 16px;
 }
+
+.divcah1 {
+    display: inline-flex;
+    /* display: flex; */
+    gap: 15px;
+    border-radius: 100px;
+    padding: 12px 18px;
+    background: #f2f4f7;
+    align-items: center;
+    justify-content: center;
+    margin: 8px;
+}
+
+.cah {
+    width: 20px;
+    height: 15px;
+}
+
+.oil {
+    width: 20px;
+    height: 20px;
+}
+
+.cup {
+    height: 20px;
+    width: 20px;
+}
+
+.wind {
+    height: 20px;
+    width: 20px;
+}

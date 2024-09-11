@@ -4,6 +4,14 @@ import { requestProductCardById } from "../../services/api.js";
 import Loader from "../Loader/Loader.jsx";
 import Error from "../Error/Error.jsx";
 import css from '../../components/TehCard/TehCard.module.css'
+import cah from "../../assets/images/cah.png";
+import oil from "../../assets/images/oil.png";
+import cup from "../../assets/images/cup.png";
+import wind from "../../assets/images/wind.png";
+import radio from "../../assets/images/radio.png";
+
+
+
 
 
 const TehCard = () => {
@@ -33,6 +41,27 @@ const [isError, setIsError] = useState(false);
     <div>
       {isLoading && <Loader />}
       {isError && <Error />}
+      <div className={css.divcah1}>
+                  <img className={css.cah} src={cah} alt="" />
+                  <p className={css.auto}>Automatic</p>
+                </div>
+                <div className={css.divcah1}>
+                  <img className={css.oil} src={oil} alt="" />
+                  <p>Petrol</p>
+                </div>
+                <div className={css.divcah1}>
+                  <img className={css.cup} src={cup} alt="" />
+                  <p>Kitchen</p>
+                </div>
+                <br />
+                <div className={css.divcah1}>
+                  <img className={css.wind} src={wind} alt="" />
+                  <p>AC</p>
+                </div>
+                <div className={css.divcah1}>
+                  <img className={css.radio} src={radio} alt="" />
+                  <p>Radio</p>
+                </div>
       <h2 className={css.title}>Vehicle details</h2>
       <hr className={css.line} />
       {productDetails !== null && (
