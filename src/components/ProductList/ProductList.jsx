@@ -52,7 +52,7 @@ const ProductList = ({ products, showDeleteIcon, handleDelete }) => {
                   <h2 className={css.title}>{product.name}</h2>
                   <div className={css.divprice}>
                     <p className={css.title}>€ {product.price}.00</p>
-                    <Link to="/favorite">
+                    {/* <Link to="/favorite"> */}
                     <button
                       className={css.butfav}
                       onClick={() => toggleFavorite(product.id)}>
@@ -62,7 +62,7 @@ const ProductList = ({ products, showDeleteIcon, handleDelete }) => {
                         alt="favorite"
                       />
                     </button>
-                    </Link>
+                    {/* </Link> */}
                   </div>
                 </div>
                 <div className={css.starmap}>
