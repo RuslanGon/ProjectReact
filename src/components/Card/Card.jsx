@@ -6,6 +6,10 @@ import { requestProductCardById } from "../../services/api.js";
 import css from '../Card/Card.module.css'
 import FeaturesPage from "./FeaturesPage.jsx";
 import ReviewsPage from "./ReviewsPage.jsx";
+import star from "../../assets/images/star.png";
+import map from "../../assets/images/map.png";
+
+
 
 const Card = () => {
   const { productId } = useParams();
@@ -37,6 +41,18 @@ const Card = () => {
       {productDetails !== null && (
         <div className={css.card}>
           <h1>{productDetails.name}</h1>
+          <div className={css.starmap}>
+                  <div className={css.divstar}>
+                    <img className={css.star} src={star} alt="" />
+                    <p className={css.rating}>
+                      {productDetails.rating} ({productDetails.reviews?.length || 0} Reviews)
+                    </p>
+                  </div>
+                  <div className={css.divstar}>
+                    <img className={css.map} src={map} alt="" />
+                    <h3 className={css.location}>{productDetails.location}</h3>
+                  </div>
+                </div>
           <p>{productDetails.price}</p>
           <p>{productDetails.rating}</p>
           <p>{productDetails.location}</p>
