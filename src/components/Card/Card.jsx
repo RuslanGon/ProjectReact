@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, Route, Routes, useParams } from "react-router-dom";
+import { Link, Route, Routes, useLocation, useParams } from "react-router-dom";
 import Loader from "../Loader/Loader.jsx";
 import Error from "../Error/Error.jsx";
 import { requestProductCardById } from "../../services/api.js";
@@ -13,9 +13,9 @@ import map from "../../assets/images/map.png";
 const Card = () => {
   const { productId } = useParams();
   const [productDetails, setProductDetails] = useState(null);
-  // console.log(productDetails);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
+  const location = useLocation(); // получаем текущий путь
 
   useEffect(() => {
     async function fetchProductDetails() {
@@ -66,12 +66,30 @@ const Card = () => {
               ))}
             </div>
           )}
-          <p className={css.desc}>Embrace simplicity and freedom with the Mavericks panel truck, an ideal choice for solo travelers or couples seeking a compact and efficient way to explore the open roads. This no-frills yet reliable panel truck offers the essentials for a comfortable journey, making it the perfect companion for those who value simplicity and functionality.
+          <p className={css.desc}>
+            Embrace simplicity and freedom with the Mavericks panel truck, an
+            ideal choice for solo travelers or couples seeking a compact and
+            efficient way to explore the open roads. This no-frills yet reliable
+            panel truck offers the essentials for a comfortable journey, making
+            it the perfect companion for those who value simplicity and
+            functionality.
           </p>
         </div>
       )}
-      <Link className={css.rout} to={"features"}>Features</Link>
-      <Link className={css.rout} to={"reviews"}>Reviews</Link>
+      <div className={css.navLinks}>
+        <Link
+          className={`${css.rout} ${location.pathname.includes("features") ? css.active : ""}`}
+          to={"features"}
+        >
+          Features
+        </Link>
+        <Link
+          className={`${css.rout} ${location.pathname.includes("reviews") ? css.active : ""}`}
+          to={"reviews"}
+        >
+          Reviews
+        </Link>
+      </div>
       <hr className={css.line} />
 
       <Routes>
