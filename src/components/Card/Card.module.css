@@ -1,0 +1,63 @@
+.starmap {
+    display: flex;
+    margin-bottom: 16px;
+    gap: 16px;
+}
+
+.map {
+    width: 16px;
+    height: 16px;
+}
+
+.star {
+    width: 16px;
+    height: 16px;
+}
+
+.divstar {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.title {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 1.33333;
+    color: #101828;
+    margin-top: 48px;
+    margin-bottom: 8px;
+}
+
+.card {
+    margin-left: 64px;
+}
+
+.titleone {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 1.33333;
+    color: #101828;
+}
+
+.gallery {
+    margin-top: 28px;
+    margin-bottom: 28px;
+    display: flex;
+    gap: 48px;
+}
+
+.galleryImage {
+    border-radius: 10px;
+    width: 292px;
+    height: 100%;
+    object-fit: cover
+}
+
+.desc {
+font-weight: 400;
+font-size: 16px;
+line-height: 1.5;
+color: #475467;
+width: 1312px;
+}

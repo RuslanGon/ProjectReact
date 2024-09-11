@@ -3,13 +3,11 @@ import { Link, Route, Routes, useParams } from "react-router-dom";
 import Loader from "../Loader/Loader.jsx";
 import Error from "../Error/Error.jsx";
 import { requestProductCardById } from "../../services/api.js";
-import css from '../Card/Card.module.css'
+import css from "../Card/Card.module.css";
 import FeaturesPage from "./FeaturesPage.jsx";
 import ReviewsPage from "./ReviewsPage.jsx";
 import star from "../../assets/images/star.png";
 import map from "../../assets/images/map.png";
-
-
 
 const Card = () => {
   const { productId } = useParams();
@@ -23,7 +21,7 @@ const Card = () => {
       try {
         setIsLoading(true);
         const data = await requestProductCardById(productId);
-        setProductDetails(data);  
+        setProductDetails(data);
       } catch (error) {
         console.log(error);
         setIsError(true);
@@ -40,24 +38,21 @@ const Card = () => {
       {isError && <Error />}
       {productDetails !== null && (
         <div className={css.card}>
-          <h1>{productDetails.name}</h1>
+          <h2 className={css.title}>{productDetails.name}</h2>
           <div className={css.starmap}>
-                  <div className={css.divstar}>
-                    <img className={css.star} src={star} alt="" />
-                    <p className={css.rating}>
-                      {productDetails.rating} ({productDetails.reviews?.length || 0} Reviews)
-                    </p>
-                  </div>
-                  <div className={css.divstar}>
-                    <img className={css.map} src={map} alt="" />
-                    <h3 className={css.location}>{productDetails.location}</h3>
-                  </div>
-                </div>
-          <p>{productDetails.price}</p>
-          <p>{productDetails.rating}</p>
-          <p>{productDetails.location}</p>
-          <p>{productDetails.description}</p>
-          <p>{productDetails.form}</p>
+            <div className={css.divstar}>
+              <img className={css.star} src={star} alt="" />
+              <p className={css.rating}>
+                {productDetails.rating} ({productDetails.reviews?.length || 0}{" "}
+                Reviews)
+              </p>
+            </div>
+            <div className={css.divstar}>
+              <img className={css.map} src={map} alt="" />
+              <h3 className={css.location}>{productDetails.location}</h3>
+            </div>
+          </div>
+          <p className={css.titleone}>€ {productDetails.price}.00</p>
           {productDetails.gallery && (
             <div className={css.gallery}>
               {productDetails.gallery.map((item, index) => (
@@ -70,13 +65,15 @@ const Card = () => {
               ))}
             </div>
           )}
+          <p className={css.desc}>Embrace simplicity and freedom with the Mavericks panel truck, an ideal choice for solo travelers or couples seeking a compact and efficient way to explore the open roads. This no-frills yet reliable panel truck offers the essentials for a comfortable journey, making it the perfect companion for those who value simplicity and functionality.
+          </p>
         </div>
       )}
-      <Link to={'features'}>Features</Link>
-      <Link to={'reviews'}>Reviews</Link>
+      <Link to={"features"}>Features</Link>
+      <Link to={"reviews"}>Reviews</Link>
       <Routes>
-      <Route path="features" element={<FeaturesPage />} />
-      <Route path="reviews" element={<ReviewsPage />} />
+        <Route path="features" element={<FeaturesPage />} />
+        <Route path="reviews" element={<ReviewsPage />} />
       </Routes>
     </div>
   );
