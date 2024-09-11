@@ -10,7 +10,7 @@ import ReviewsPage from "./ReviewsPage.jsx";
 const Card = () => {
   const { productId } = useParams();
   const [productDetails, setProductDetails] = useState(null);
-  console.log(productDetails);
+  // console.log(productDetails);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
 
