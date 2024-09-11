@@ -12,7 +12,25 @@ stroke: #dadde1;
 margin-bottom: 24px;
 }
 
+/* .card {
+    display: flex;
+    align-items: center;
+} */
+
+.divtextmain {
+    display: flex;
+    align-items: center;
+}
+
 .text {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #101828;
+    margin-bottom: 16px;
+}
+
+.textdesc {
     font-weight: 500;
     font-size: 16px;
     line-height: 1.5;

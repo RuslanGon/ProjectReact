@@ -37,16 +37,44 @@ const [isError, setIsError] = useState(false);
       <hr className={css.line} />
       {productDetails !== null && (
         <div className={css.card}>
-          <p className={css.text}>Form {productDetails.form}</p>
-          <p className={css.text}>Length {productDetails.length}</p>
-          <p className={css.text}>Width {productDetails.width}</p>
-          <p className={css.text}>Height {productDetails.height}</p>
-          <p className={css.text}>Tank {productDetails.tank}</p>
-          <p className={css.text}>Consumption {productDetails.consumption}</p>
+            <>
+          <div className={css.divtextmain}>
+            <p className={css.text}>
+              Form <p className={css.textdesc}>{productDetails.form}</p>
+            </p>
+          </div>
+          </>
+          <div className={css.divtextmain}>
+            <p className={css.text}>
+              Length <p className={css.textdesc}>{productDetails.length}</p>
+            </p>
+          </div>
+          <div className={css.divtextmain}>
+            <p className={css.text}> Width 
+            <p className={css.textdesc}>{productDetails.width}</p>
+            </p>
+          </div>
+          <div className={css.divtextmain}>
+            <p className={css.text}>
+              Height <p className={css.textdesc}>{productDetails.height}</p>
+            </p>
+          </div>
+          <div className={css.divtextmain}>
+            <p className={css.text}>
+              Tank <p className={css.textdesc}>{productDetails.tank}</p>
+            </p>
+          </div>
+          <div>
+            {" "}
+            <p className={css.text}>
+              Consumption{" "}
+              <p className={css.textdesc}>{productDetails.consumption}</p>
+            </p>
+          </div>
         </div>
       )}
     </div>
-  )
+  );
 }
 
 export default TehCard
