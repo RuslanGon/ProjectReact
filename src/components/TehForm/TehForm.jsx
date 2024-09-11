@@ -1,6 +1,6 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import css from "../SearchForm/SearchForm.module.css";
+import css from '../TehForm/TehForm.module.css'
 
 const TehSchema = Yup.object({
   name: Yup.string().required("name is required"),
@@ -23,9 +23,9 @@ const TehForm = () => {
   };
 
   return (
-    <div>
-        <h2>Book your campervan now</h2>
-        <p>Stay connected! We are always ready to help you.</p>
+    <div className={css.divmainform}>
+        <h2 className={css.title}>Book your campervan now</h2>
+        <p className={css.text}>Stay connected! We are always ready to help you.</p>
       <Formik
         initialValues={FORM_INITIAL_VALUES}
         onSubmit={handleSubmit}
@@ -75,7 +75,7 @@ const TehForm = () => {
           <br />
           <label>
             <Field
-              className={css.input}
+              className={css.input1}
               type="text"
               name="comment"
               placeholder="Comment"
@@ -87,8 +87,8 @@ const TehForm = () => {
             />
           </label>
           <br />
-          <button className={css.button} type="submit" aria-label="Search">
-            Search
+          <button className={css.button} type="submit">
+            Send
           </button>
         </Form>
       </Formik>
