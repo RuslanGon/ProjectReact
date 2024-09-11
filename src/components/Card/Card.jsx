@@ -33,7 +33,6 @@ const Card = () => {
     fetchProductDetails();
   }, [productId]);
 
-  // Если текущий путь не содержит "features" или "reviews", перенаправляем на "features"
   if (!location.pathname.includes("features") && !location.pathname.includes("reviews")) {
     return <Navigate to="features" />;
   }
@@ -47,13 +46,13 @@ const Card = () => {
           <h2 className={css.title}>{productDetails.name}</h2>
           <div className={css.starmap}>
             <div className={css.divstar}>
-              <img className={css.star} src={star} alt="" />
+              <img className={css.star} src={star} alt="star" />
               <p className={css.rating}>
                 {productDetails.rating} ({productDetails.reviews?.length || 0} Reviews)
               </p>
             </div>
             <div className={css.divstar}>
-              <img className={css.map} src={map} alt="" />
+              <img className={css.map} src={map} alt="star" />
               <h3 className={css.location}>{productDetails.location}</h3>
             </div>
           </div>
@@ -65,8 +64,7 @@ const Card = () => {
                   key={index}
                   src={item.original}
                   alt={`Gallery image ${index + 1}`}
-                  className={css.galleryImage}
-                />
+                  className={css.galleryImage}/>
               ))}
             </div>
           )}
@@ -82,22 +80,17 @@ const Card = () => {
       <div className={css.navLinks}>
         <Link
           className={`${css.rout} ${location.pathname.includes("features") ? css.active : ""}`}
-          to={"features"}
-        >
-          Features
+          to={"features"}> Features
         </Link>
         <Link
           className={`${css.rout} ${location.pathname.includes("reviews") ? css.active : ""}`}
-          to={"reviews"}
-        >
-          Reviews
+          to={"reviews"}> Reviews
         </Link>
       </div>
       <hr className={css.line} />
-
       <Routes>
         <Route className={css.rout} path="features" element={<FeaturesPage />} />
-        <Route path="reviews" element={<ReviewsPage />} />
+        <Route className={css.rout} path="reviews" element={<ReviewsPage />} />
       </Routes>
     </div>
   );

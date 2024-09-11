@@ -38,7 +38,7 @@ const Reviews = () => {
         className={css.star}
         src={star}
         alt="star"
-        style={{ opacity: index < filledStars ? 1 : 0.3 }} // добавляем полупрозрачность для пустых звезд
+        style={{ opacity: index < filledStars ? 1 : 0.2 }} // добавляем полупрозрачность для пустых звезд
       />
     ));
     return starsArray;
