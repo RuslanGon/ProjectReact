@@ -75,7 +75,7 @@ margin-bottom: 60px;
 .active {
     color: red;
     text-decoration: underline;
-    text-underline-offset: 5px; /* можно настроить отступ подчеркивания */
+    text-underline-offset: 28px; /* можно настроить отступ подчеркивания */
   }
 
 .line {
