@@ -48,7 +48,7 @@ const MainPage = () => {
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/catalog" element={<CatalogPage />} />
-              <Route path='/products/:productId'  element={<Card/>}/>
+              <Route path='/products/:productId/*'  element={<Card/>}/>
               <Route path="/favorite" element={<FavoritePage />} />
               <Route path="*" element={<NotFoundPage />} />
             </Routes>

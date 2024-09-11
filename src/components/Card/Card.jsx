@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, Route, Routes, useParams } from "react-router-dom";
 import Loader from "../Loader/Loader.jsx";
 import Error from "../Error/Error.jsx";
 import { requestProductCardById } from "../../services/api.js";
 import css from '../Card/Card.module.css'
+import FeaturesPage from "./FeaturesPage.jsx";
+import ReviewsPage from "./ReviewsPage.jsx";
 
 const Card = () => {
   const { productId } = useParams();
@@ -54,6 +56,12 @@ const Card = () => {
           )}
         </div>
       )}
+      <Link to={'features'}>Features</Link>
+      <Link to={'reviews'}>Reviews</Link>
+      <Routes>
+      <Route path="features" element={<FeaturesPage />} />
+      <Route path="reviews" element={<ReviewsPage />} />
+      </Routes>
     </div>
   );
 };
