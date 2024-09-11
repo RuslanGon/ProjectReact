@@ -64,11 +64,15 @@ margin-bottom: 60px;
 }
 
 .rout {
-margin-left: 64px;
-font-weight: 600;
-font-size: 20px;
-line-height: 1.2;
-color: #101828;
+    margin-left: 64px;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.2;
+    color: #101828;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 27px; /* Регулирует расстояние между текстом и подчеркиванием */
+    padding-bottom: 10px;
 }
 
 .line {
