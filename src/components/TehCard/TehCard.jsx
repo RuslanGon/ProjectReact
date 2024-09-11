@@ -8,7 +8,7 @@ import css from '../../components/TehCard/TehCard.module.css'
 
 const TehCard = () => {
 
-    const { productId } = useParams();
+const { productId } = useParams();
 const [productDetails, setProductDetails] = useState(null);
 const [isLoading, setIsLoading] = useState(false);
 const [isError, setIsError] = useState(false);
@@ -33,10 +33,16 @@ const [isError, setIsError] = useState(false);
     <div>
       {isLoading && <Loader />}
       {isError && <Error />}
+      <h2 className={css.title}>Vehicle details</h2>
+      <hr className={css.line} />
       {productDetails !== null && (
         <div className={css.card}>
-          <h1>{productDetails.name}</h1>
-          <p>{productDetails.price}</p>
+          <p className={css.text}>Form {productDetails.form}</p>
+          <p className={css.text}>Length {productDetails.length}</p>
+          <p className={css.text}>Width {productDetails.width}</p>
+          <p className={css.text}>Height {productDetails.height}</p>
+          <p className={css.text}>Tank {productDetails.tank}</p>
+          <p className={css.text}>Consumption {productDetails.consumption}</p>
         </div>
       )}
     </div>
