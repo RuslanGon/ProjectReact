@@ -15,7 +15,7 @@ const Card = () => {
   const [productDetails, setProductDetails] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
-  const location = useLocation(); // получаем текущий путь
+  const location = useLocation(); 
 
   useEffect(() => {
     async function fetchProductDetails() {
