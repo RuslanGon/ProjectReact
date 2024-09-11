@@ -46,6 +46,11 @@ margin-bottom: 24px;
     margin: 8px;
 }
 
+.divtextmain {
+    display: flex;
+    justify-content: space-between;
+}
+
 .cah {
     width: 20px;
     height: 15px;
