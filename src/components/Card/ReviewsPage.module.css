@@ -1,0 +1,5 @@
+.maindiv {
+    display: flex;
+    gap: 40px;
+    margin-left: 64px;
+}

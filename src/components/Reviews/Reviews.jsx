@@ -35,8 +35,14 @@ const Reviews = () => {
       {isError && <Error />}
       {productDetails !== null && (
         <div className={css.card}>
-          <h1>{productDetails.name}</h1>
-          <p>{productDetails.price}</p>
+          <div className={css.reviews}>
+          <p>{productDetails.rating}</p>
+            {productDetails.reviews.map((review, index) => (
+              <div key={index} className={css.review}>
+                <p><strong>{review.reviewer_name}:</strong> {review.comment}</p>
+              </div>
+            ))}
+          </div>
         </div>
       )}
     </div>
