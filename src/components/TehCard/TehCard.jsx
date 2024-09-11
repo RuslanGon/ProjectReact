@@ -37,40 +37,29 @@ const [isError, setIsError] = useState(false);
       <hr className={css.line} />
       {productDetails !== null && (
         <div className={css.card}>
-            <>
           <div className={css.divtextmain}>
-            <p className={css.text}>
-              Form <p className={css.textdesc}>{productDetails.form}</p>
-            </p>
-            
-          </div>
-          </>
-          <div className={css.divtextmain}>
-            <p className={css.text}>
-              Length <p className={css.textdesc}>{productDetails.length}</p>
-            </p>
+            <p className={css.text}>Form</p>
+            <span className={css.textdesc}>{productDetails.form}</span>
           </div>
           <div className={css.divtextmain}>
-            <p className={css.text}> Width 
-            <p className={css.textdesc}>{productDetails.width}</p>
-            </p>
+            <p className={css.text}>Length </p>
+            <span className={css.textdesc}>{productDetails.length}</span>
           </div>
           <div className={css.divtextmain}>
-            <p className={css.text}>
-              Height <p className={css.textdesc}>{productDetails.height}</p>
-            </p>
+            <p className={css.text}>Width </p>
+            <span className={css.textdesc}>{productDetails.width}</span>
           </div>
           <div className={css.divtextmain}>
-            <p className={css.text}>
-              Tank <p className={css.textdesc}>{productDetails.tank}</p>
-            </p>
+            <p className={css.text}>Height </p>
+            <span className={css.textdesc}>{productDetails.height}</span>
           </div>
-          <div>
-            {" "}
-            <p className={css.text}>
-              Consumption{" "}
-              <p className={css.textdesc}>{productDetails.consumption}</p>
-            </p>
+          <div className={css.divtextmain}>
+            <p className={css.text}>Tank </p>{" "}
+            <span className={css.textdesc}>{productDetails.tank}</span>
+          </div>
+          <div className={css.divtextmain}>
+            <p className={css.text}>Consumption </p>
+            <span className={css.textdesc}>{productDetails.consumption}</span>
           </div>
         </div>
       )}
