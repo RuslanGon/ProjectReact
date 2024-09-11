@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, Route, Routes, useLocation, useParams } from "react-router-dom";
+import { Link, Navigate, Route, Routes, useLocation, useParams } from "react-router-dom";
 import Loader from "../Loader/Loader.jsx";
 import Error from "../Error/Error.jsx";
 import { requestProductCardById } from "../../services/api.js";
@@ -33,6 +33,11 @@ const Card = () => {
     fetchProductDetails();
   }, [productId]);
 
+  // Если текущий путь не содержит "features" или "reviews", перенаправляем на "features"
+  if (!location.pathname.includes("features") && !location.pathname.includes("reviews")) {
+    return <Navigate to="features" />;
+  }
+
   return (
     <div className={css.cardContainer}>
       {isLoading && <Loader />}
@@ -44,8 +49,7 @@ const Card = () => {
             <div className={css.divstar}>
               <img className={css.star} src={star} alt="" />
               <p className={css.rating}>
-                {productDetails.rating} ({productDetails.reviews?.length || 0}{" "}
-                Reviews)
+                {productDetails.rating} ({productDetails.reviews?.length || 0} Reviews)
               </p>
             </div>
             <div className={css.divstar}>
@@ -67,12 +71,11 @@ const Card = () => {
             </div>
           )}
           <p className={css.desc}>
-            Embrace simplicity and freedom with the Mavericks panel truck, an
-            ideal choice for solo travelers or couples seeking a compact and
-            efficient way to explore the open roads. This no-frills yet reliable
-            panel truck offers the essentials for a comfortable journey, making
-            it the perfect companion for those who value simplicity and
-            functionality.
+            Embrace simplicity and freedom with the Mavericks panel truck, an ideal choice
+            for solo travelers or couples seeking a compact and efficient way to explore the
+            open roads. This no-frills yet reliable panel truck offers the essentials for a
+            comfortable journey, making it the perfect companion for those who value simplicity
+            and functionality.
           </p>
         </div>
       )}
