@@ -36,57 +36,59 @@ const TehCard = () => {
     <div>
       {isLoading && <Loader />}
       {isError && <Error />}
-      <div className={css.divcah1}>
-        <img className={css.cah} src={cah} alt="" />
-        <p className={css.auto}>Automatic</p>
-      </div>
-      <div className={css.divcah1}>
-        <img className={css.oil} src={oil} alt="" />
-        <p>Petrol</p>
-      </div>
-      <div className={css.divcah1}>
-        <img className={css.cup} src={cup} alt="" />
-        <p>Kitchen</p>
-      </div>
-      <br />
-      <div className={css.divcah1}>
-        <img className={css.wind} src={wind} alt="" />
-        <p>AC</p>
-      </div>
-      <div className={css.divcah1}>
-        <img className={css.radio} src={radio} alt="" />
-        <p>Radio</p>
-      </div>
-      <h2 className={css.title}>Vehicle details</h2>
-      <hr className={css.line} />
-      {productDetails !== null && (
-        <div className={css.card}>
-          <div className={css.divtextmain}>
-            <p className={css.text}>Form</p>
-            <span className={css.textdesc}>{productDetails.form}</span>
-          </div>
-          <div className={css.divtextmain}>
-            <p className={css.text}>Length </p>
-            <span className={css.textdesc}>{productDetails.length}</span>
-          </div>
-          <div className={css.divtextmain}>
-            <p className={css.text}>Width </p>
-            <span className={css.textdesc}>{productDetails.width}</span>
-          </div>
-          <div className={css.divtextmain}>
-            <p className={css.text}>Height </p>
-            <span className={css.textdesc}>{productDetails.height}</span>
-          </div>
-          <div className={css.divtextmain}>
-            <p className={css.text}>Tank </p>{" "}
-            <span className={css.textdesc}>{productDetails.tank}</span>
-          </div>
-          <div className={css.divtextmain}>
-            <p className={css.text}>Consumption </p>
-            <span className={css.textdesc}>{productDetails.consumption}</span>
-          </div>
+      <div className={css.divmain}>
+        <div className={css.divcah1}>
+          <img className={css.cah} src={cah} alt="" />
+          <p className={css.auto}>Automatic</p>
         </div>
-      )}
+        <div className={css.divcah1}>
+          <img className={css.oil} src={oil} alt="" />
+          <p>Petrol</p>
+        </div>
+        <div className={css.divcah1}>
+          <img className={css.cup} src={cup} alt="" />
+          <p>Kitchen</p>
+        </div>
+        <br />
+        <div className={css.divcah1}>
+          <img className={css.wind} src={wind} alt="" />
+          <p>AC</p>
+        </div>
+        <div className={css.divcah1}>
+          <img className={css.radio} src={radio} alt="" />
+          <p>Radio</p>
+        </div>
+        <h2 className={css.title}>Vehicle details</h2>
+        <hr className={css.line} />
+        {productDetails !== null && (
+          <div className={css.card}>
+            <div className={css.divtextmain}>
+              <p className={css.text}>Form</p>
+              <span className={css.textdesc}>{productDetails.form}</span>
+            </div>
+            <div className={css.divtextmain}>
+              <p className={css.text}>Length </p>
+              <span className={css.textdesc}>{productDetails.length}</span>
+            </div>
+            <div className={css.divtextmain}>
+              <p className={css.text}>Width </p>
+              <span className={css.textdesc}>{productDetails.width}</span>
+            </div>
+            <div className={css.divtextmain}>
+              <p className={css.text}>Height </p>
+              <span className={css.textdesc}>{productDetails.height}</span>
+            </div>
+            <div className={css.divtextmain}>
+              <p className={css.text}>Tank </p>{" "}
+              <span className={css.textdesc}>{productDetails.tank}</span>
+            </div>
+            <div className={css.divtextmain}>
+              <p className={css.text}>Consumption </p>
+              <span className={css.textdesc}>{productDetails.consumption}</span>
+            </div>
+          </div>
+        )}
+      </div>
     </div>
   );
 };

@@ -4,7 +4,7 @@ font-size: 20px;
 line-height: 1.2;
 color: #101828;
 margin-bottom: 24px;
-margin-top: 26px;
+margin-top: 100px;
 }
 
 .line {
@@ -37,7 +37,6 @@ margin-bottom: 24px;
 
 .divcah1 {
     display: inline-flex;
-    /* display: flex; */
     gap: 15px;
     border-radius: 100px;
     padding: 12px 18px;
@@ -65,4 +64,13 @@ margin-bottom: 24px;
 .wind {
     height: 20px;
     width: 20px;
+}
+
+.divmain {
+    margin-left: 64px;
+    border-radius: 10px;
+padding: 44px 80px;
+width: 631px;
+height: 588px;
+background: #f7f7f7;
 }
