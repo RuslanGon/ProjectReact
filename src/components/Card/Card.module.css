@@ -86,3 +86,54 @@ margin-top: 24px;
 width: 1312px;
 margin-left: 64px;
 }
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .modalImage {
+    max-width: 90%;
+    max-height: 90%;
+  }
+  
+  .galleryImage {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  .galleryImage:hover {
+    transform: scale(1.05);
+  }
+  
+  .prevBtn, .nextBtn {
+    position: absolute;
+    top: 50%;
+    background-color: rgba(0, 0, 0, 0.6);
+    border: none;
+    color: white;
+    font-size: 2rem;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1001;
+  }
+  
+  .prevBtn {
+    left: 20px;
+  }
+  
+  .nextBtn {
+    right: 20px;
+  }
+  
+  .prevBtn:hover, .nextBtn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }

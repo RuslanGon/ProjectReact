@@ -9,13 +9,13 @@ import ReviewsPage from "./ReviewsPage.jsx";
 import star from "../../assets/images/star.png";
 import map from "../../assets/images/map.png";
 
-
 const Card = () => {
   const { productId } = useParams();
   const [productDetails, setProductDetails] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
-  const location = useLocation(); 
+  const [currentImageIndex, setCurrentImageIndex] = useState(null); // Индекс текущего изображения
+  const location = useLocation();
 
   useEffect(() => {
     async function fetchProductDetails() {
@@ -32,6 +32,39 @@ const Card = () => {
     }
     fetchProductDetails();
   }, [productId]);
+
+  // Обработчик закрытия при нажатии клавиши Escape
+  useEffect(() => {
+    const handleEscape = (event) => {
+      if (event.key === "Escape") {
+        setCurrentImageIndex(null);
+      }
+    };
+    window.addEventListener("keydown", handleEscape);
+    return () => window.removeEventListener("keydown", handleEscape);
+  }, []);
+
+  // Функция для увеличения изображения
+  const handleImageClick = (index) => {
+    setCurrentImageIndex(index);
+  };
+
+  // Функция для переключения на следующее изображение
+  const handleNextImage = () => {
+    if (currentImageIndex !== null && productDetails.gallery) {
+      const nextIndex = (currentImageIndex + 1) % productDetails.gallery.length;
+      setCurrentImageIndex(nextIndex);
+    }
+  };
+
+  // Функция для переключения на предыдущее изображение
+  const handlePrevImage = () => {
+    if (currentImageIndex !== null && productDetails.gallery) {
+      const prevIndex =
+        (currentImageIndex - 1 + productDetails.gallery.length) % productDetails.gallery.length;
+      setCurrentImageIndex(prevIndex);
+    }
+  };
 
   if (!location.pathname.includes("features") && !location.pathname.includes("reviews")) {
     return <Navigate to="features" />;
@@ -52,7 +85,7 @@ const Card = () => {
               </p>
             </div>
             <div className={css.divstar}>
-              <img className={css.map} src={map} alt="star" />
+              <img className={css.map} src={map} alt="map" />
               <h3 className={css.location}>{productDetails.location}</h3>
             </div>
           </div>
@@ -64,7 +97,9 @@ const Card = () => {
                   key={index}
                   src={item.original}
                   alt={`Gallery image ${index + 1}`}
-                  className={css.galleryImage}/>
+                  className={css.galleryImage}
+                  onClick={() => handleImageClick(index)} // Обработчик клика
+                />
               ))}
             </div>
           )}
@@ -92,6 +127,19 @@ const Card = () => {
         <Route className={css.rout} path="features" element={<FeaturesPage />} />
         <Route className={css.rout} path="reviews" element={<ReviewsPage />} />
       </Routes>
+
+      {/* Модальное окно для увеличенного изображения */}
+      {currentImageIndex !== null && (
+        <div className={css.modal} onClick={() => setCurrentImageIndex(null)}>
+          <button className={css.prevBtn} onClick={handlePrevImage}>←</button>
+          <img
+            className={css.modalImage}
+            src={productDetails.gallery[currentImageIndex].original}
+            alt="Selected"
+          />
+          <button className={css.nextBtn} onClick={handleNextImage}>→</button>
+        </div>
+      )}
     </div>
   );
 };
