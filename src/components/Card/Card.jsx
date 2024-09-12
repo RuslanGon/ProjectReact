@@ -50,7 +50,8 @@ const Card = () => {
   };
 
   // Функция для переключения на следующее изображение
-  const handleNextImage = () => {
+  const handleNextImage = (event) => {
+    event.stopPropagation(); // Останавливаем всплытие события
     if (currentImageIndex !== null && productDetails.gallery) {
       const nextIndex = (currentImageIndex + 1) % productDetails.gallery.length;
       setCurrentImageIndex(nextIndex);
@@ -58,12 +59,18 @@ const Card = () => {
   };
 
   // Функция для переключения на предыдущее изображение
-  const handlePrevImage = () => {
+  const handlePrevImage = (event) => {
+    event.stopPropagation(); // Останавливаем всплытие события
     if (currentImageIndex !== null && productDetails.gallery) {
       const prevIndex =
         (currentImageIndex - 1 + productDetails.gallery.length) % productDetails.gallery.length;
       setCurrentImageIndex(prevIndex);
     }
+  };
+
+  // Закрытие модального окна при клике на фон
+  const handleCloseModal = () => {
+    setCurrentImageIndex(null);
   };
 
   if (!location.pathname.includes("features") && !location.pathname.includes("reviews")) {
@@ -130,14 +137,16 @@ const Card = () => {
 
       {/* Модальное окно для увеличенного изображения */}
       {currentImageIndex !== null && (
-        <div className={css.modal} onClick={() => setCurrentImageIndex(null)}>
-          <button className={css.prevBtn} onClick={handlePrevImage}>←</button>
-          <img
-            className={css.modalImage}
-            src={productDetails.gallery[currentImageIndex].original}
-            alt="Selected"
-          />
-          <button className={css.nextBtn} onClick={handleNextImage}>→</button>
+        <div className={css.modal} onClick={handleCloseModal}>
+          <div className={css.modalContent} onClick={(e) => e.stopPropagation()}>
+            <button className={css.prevBtn} onClick={handlePrevImage}>←</button>
+            <img
+              className={css.modalImage}
+              src={productDetails.gallery[currentImageIndex].original}
+              alt="Selected"
+            />
+            <button className={css.nextBtn} onClick={handleNextImage}>→</button>
+          </div>
         </div>
       )}
     </div>

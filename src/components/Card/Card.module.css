@@ -100,6 +100,12 @@ margin-left: 64px;
     z-index: 1000;
   }
   
+  .modalContent {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
   .modalImage {
     max-width: 90%;
     max-height: 90%;
@@ -117,23 +123,26 @@ margin-left: 64px;
   .prevBtn, .nextBtn {
     position: absolute;
     top: 50%;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: white;
     border: none;
-    color: white;
+    color: rgba(0, 0, 0, 0.6);;
     font-size: 2rem;
     padding: 10px;
     cursor: pointer;
     z-index: 1001;
+    border-radius: 10px;
   }
   
   .prevBtn {
-    left: 20px;
+    left: -110px;
   }
   
   .nextBtn {
-    right: 20px;
+    right: 0px;
   }
   
-  .prevBtn:hover, .nextBtn:hover {
-    background-color: rgba(0, 0, 0, 0.8);
+  .prevBtn:hover,
+  .nextBtn:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+      color: white;
   }
