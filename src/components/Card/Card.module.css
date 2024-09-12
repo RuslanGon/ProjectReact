@@ -60,7 +60,15 @@ font-size: 16px;
 line-height: 1.5;
 color: #475467;
 width: 1312px;
-margin-bottom: 60px;
+margin-bottom: 20px;
+}
+
+.back {
+font-size: 40px;
+}
+
+.navLinks {
+    margin-top: 30px;
 }
 
 .rout {

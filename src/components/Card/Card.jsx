@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, Navigate, Route, Routes, useLocation, useParams } from "react-router-dom";
+import { Link, Navigate, Route, Routes, useLocation, useParams } from "react-router-dom"; 
 import Loader from "../Loader/Loader.jsx";
 import Error from "../Error/Error.jsx";
 import { requestProductCardById } from "../../services/api.js";
@@ -73,6 +73,7 @@ const Card = () => {
     setCurrentImageIndex(null);
   };
 
+
   if (!location.pathname.includes("features") && !location.pathname.includes("reviews")) {
     return <Navigate to="features" />;
   }
@@ -117,6 +118,7 @@ const Card = () => {
             comfortable journey, making it the perfect companion for those who value simplicity
             and functionality.
           </p>
+          <Link className={css.back} to="/catalog">🔙</Link>
         </div>
       )}
       <div className={css.navLinks}>
